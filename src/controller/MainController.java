@@ -121,6 +121,11 @@ public class MainController {
     }
 
     public void turnOffDevice() {
+        if (facade.getDevices().isEmpty()){
+            view.showMessage("Nenhum dispositivo encontrado", "Erro", false);
+            return;
+        }
+
         facade.turnOffDevice(view.selectDevice(facade.getDevices()));
         view.showMessage("Dispositivo desligado", "Sucesso", true);
     }
@@ -136,6 +141,11 @@ public class MainController {
     }
 
     public void turnOffAllDevices() {
+        if (facade.getDevices().isEmpty()){
+            view.showMessage("Nenhum dispositivo encontrado", "Erro", false);
+            return;
+        }
+
         facade.getDevices().forEach(facade::turnOffDevice);
         view.showMessage("Todos os dispositivos desligados", "Sucesso", true);
     }
@@ -163,16 +173,31 @@ public class MainController {
     }
 
     public void turnOnDevice() {
-            facade.turnOnDevice(view.selectDevice(facade.getDevices()));
-            view.showMessage("Dispositivo ligado", "Sucesso", true);
+        if (facade.getDevices().isEmpty()){
+                view.showMessage("Nenhum dispositivo encontrado", "Erro", false);
+                return;
+            }
+
+        facade.turnOnDevice(view.selectDevice(facade.getDevices()));
+        view.showMessage("Dispositivo ligado", "Sucesso", true);
     }
 
     public void turnOnGruops() {
+        if (facade.getDeviceGroups().isEmpty()){
+            view.showMessage("Nenhum grupo encontrado", "Erro", false);
+            return;
+        }
+
         facade.turnOnDevice(view.selectDevice(facade.getDeviceGroups()));
         view.showMessage("Grupo ligado", "Sucesso", true);
     }
 
     public void turnOnAllDevices() {
+        if (facade.getDevices().isEmpty()){
+            view.showMessage("Nenhum dispositivo encontrado", "Erro", false);
+            return;
+        }
+
         facade.getDevices().forEach(facade::turnOnDevice);
         view.showMessage("Todos os dispositivos ligados", "Sucesso", true);
     }
