@@ -14,16 +14,24 @@ public class PanelView implements IView {
 
     @Override
     public int showHomeMenu() {
-       Object[] options = {"Interagir com dispositivos", "Criar novo dispositivo", "Criar novo grupo", "Adicionar dispositivo a grupo", "Dispositivos", "Grupos"};
+        String[] options = {"Interagir com dispositivos", "Criar novo dispositivo", "Criar novo grupo", "Adicionar dispositivo a grupo", "Dispositivos", "Grupos", "Sair"};
 
-       return JOptionPane.showOptionDialog(null, "Selecione o que deseja: ", "Menu", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        JComboBox<String> comboBox = new JComboBox<>(options);
+
+        JOptionPane.showConfirmDialog(null, comboBox, "Menu principal", JOptionPane.OK_CANCEL_OPTION);
+
+        return comboBox.getSelectedIndex();
+
     }
 
     @Override
     public int showDevicesMenu() {
-        Object[] options = {"Ver dispositivo", "Ver grupo", "Ligar dispositivo", "Desligar dispositivo", "Ligar Grupo", "Desligar Grupo", "Ligar todos os dispositivos", "Desligar todos os dispositivos"};
+        String[] options = {"Ver dispositivo", "Ver grupo", "Ligar dispositivo", "Desligar dispositivo", "Ligar Grupo", "Desligar Grupo", "Ligar todos os dispositivos", "Desligar todos os dispositivos", "Voltar"};
+        JComboBox<String> comboBox = new JComboBox<>(options);
 
-        return JOptionPane.showOptionDialog(null, "Selecione o que deseja: ", "Menu", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        JOptionPane.showConfirmDialog(null, comboBox, "Menu de dispositivos", JOptionPane.OK_CANCEL_OPTION);
+
+        return comboBox.getSelectedIndex();
     }
 
     @Override
