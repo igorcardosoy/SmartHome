@@ -1,6 +1,6 @@
 package controller;
 
-import model.Facate;
+import model.Facade;
 import model.IDevice;
 import model.devices.Light;
 import model.devices.SecurityCamera;
@@ -13,11 +13,11 @@ import java.util.List;
 
 public class MainController {
 
-    private final Facate facade;
+    private final Facade facade;
     private final IView view;
 
     public MainController() {
-        facade = new Facate();
+        facade = new Facade();
         view = new PanelView();
     }
 

@@ -4,11 +4,11 @@ import model.service.DeviceService;
 
 import java.util.List;
 
-public class Facate {
+public class Facade {
 
     private final DeviceService deviceService;
 
-    public Facate() {
+    public Facade() {
         deviceService = new DeviceService();
     }
 
